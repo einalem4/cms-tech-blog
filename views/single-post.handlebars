@@ -1,0 +1,32 @@
+<article class="post">
+  <div class="title">
+    <a href="{{post.post_url}}" target="_blank">{{post.title}}</a>
+    <span>({{post.post_url}})</span>
+  </div>
+  <div class="meta">
+    by {{post.user.username}} on {{post.created_at}}
+    |
+    <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
+  </div>
+</article>
+
+{{!-- form and comments --}}
+{{#if loggedIn}}
+<form class="comment-form">
+  <div>
+    <textarea name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">Add Comment</button>
+  </div>
+</form>
+{{/if}}
+
+{{!-- div class comments from comments.handlebars --}}
+{{> comments post.comments}}
+
+{{!-- conditionally render --}}
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}

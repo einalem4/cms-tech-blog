@@ -4,40 +4,44 @@ const sequelize = require('../config/connection');
 class Comment extends Model { }
 
 // create fields/columns for comment model
-Comment.init({
+Comment.init(
+  {
     id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-    },
-    comment_text: {
-        type: DataTypes.STRING,
-        validate: {
-
-            len: [3]
-        }
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      allowNull: false,
+      autoIncrement: true
     },
     user_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'user',
-            key: 'id'
-        }
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
     },
     post_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'post',
-            key: 'id'
-        }
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'post',
+        key: 'id'
+      }
+    },
+    comment_text: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
     }
-}, {
+  },
+  {
     sequelize,
     freezeTableName: true,
     underscored: true,
     modelName: 'comment'
-});
+  }
+);
 
 module.exports = Comment;
