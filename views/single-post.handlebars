@@ -1,26 +1,19 @@
-<article class="post">
-  <div class="title">
-    <a href="{{post.post_url}}" target="_blank">{{post.title}}</a>
-    <span>({{post.post_url}})</span>
-  </div>
-  <div class="meta">
-    by {{post.user.username}} on {{post.created_at}}
-    |
-    <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
-  </div>
-</article>
+{{> post-info post}}
 
 {{!-- form and comments --}}
 {{#if loggedIn}}
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
+<div class="card">
+  <h2 class="card-header">Comment</h2>
+  <form class="card-body comment-form" id="comment-form">
+    <div>
+      <textarea id="comment" name="comment-body"></textarea>
+    </div>
 
-  <div>
-    <button type="submit">Add Comment</button>
-  </div>
-</form>
+    <div>
+      <button type="submit" class="btn">Add Comment</button>
+    </div>
+  </form>
+</div>
 {{/if}}
 
 {{!-- div class comments from comments.handlebars --}}
