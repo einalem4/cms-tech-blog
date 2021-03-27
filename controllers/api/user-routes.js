@@ -49,10 +49,9 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // example {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+  // example {username: 'Lernantino', password: 'password1234'}
   User.create({
     username: req.body.username,
-    email: req.body.email,
     password: req.body.password
   })
     .then(dbUserData => {
@@ -71,14 +70,14 @@ router.post('/', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-  // example {email: 'lernantino@gmail.com', password: 'password1234'}
+  // example {username: 'Lernantino, password: 'password1234'}
   User.findOne({
     where: {
-      email: req.body.email
+      username: req.body.username,
     }
   }).then(dbUserData => {
     if (!dbUserData) {
-      res.status(400).json({ message: 'No user with that email address!' });
+      res.status(400).json({ message: 'No user with that username address!' });
       return;
     }
 
@@ -112,7 +111,7 @@ router.post('/logout', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  // example {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+  // example {username: 'Lernantino', password: 'password1234'}
   User.update(req.body, {
     individualHooks: true,
     where: {
