@@ -17,7 +17,7 @@ A CMS-style blog site similar to a Wordpress site, where developers can publish 
 
 
 ## Preview:
-[Live Site](hhttps://ultimate-tech-blog.herokuapp.com/)
+[Live Site](https://ultimate-tech-blog.herokuapp.com/)
 
 ![main page](assets/techblog.png)
 
