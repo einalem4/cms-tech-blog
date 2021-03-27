@@ -1,20 +1,226 @@
+:root {
+  --primary: #ccdad1;
+  --secondary: #dce9d5;
+  --tertiary: #788585;
+  --light-dark: #a1a0a1;
+  --dark: #201110;
+  --border-radius: 0.3rem;
+}
+
 * {
   box-sizing: border-box;
 }
 
-body, html {
-  height: 100%;
-  padding: 0;
+body {
+  background-color: var(--primary);
   margin: 0;
+  padding: 0;
   font-family: sans-serif;
-  color: #333;
+  color: var(--dark);
+  line-height: 1.5;
+  font-size: 24px;
+}
+
+nav {
+  padding: 10px;
+  line-height: 1.25;
+  float: top;
+}
+
+h1,
+h2 {
+  font-weight: 700;
+  margin: 0;
+  color: var(--dark);
+  line-height: 1.25;
 }
 
 a {
-  text-decoration: none;
-  color: #225ca3;
+  color: var(--secondary);
+  padding: 10px;
+  margin: 10px;
   font-weight: bold;
-  transition: color .1s;
+}
+
+.title {
+  color: var(--dark);
+  padding: 10px;
+  margin: 10px;
+}
+
+main {
+  margin: 20px auto;
+  width: 94%;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+button {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: none;
+  width: auto;
+  padding: 10px;
+  margin: 10px;
+  display: inline;
+  border-radius: var(--border-radius);
+  border: none;
+  outline: none;
+  background-color: var(--dark);
+  color: var(--primary);
+  transform: translate(-1px, -1px);
+}
+
+button:hover {
+  color: var(--primary);
+  background-color: var(--tertiary);
+  transform: translate(0, 0);
+  box-shadow: 2px 2px var(--dark);
+}
+
+header {
+  padding: 3% 4%;
+  background-color: var(--dark);
+  color: var(--primary);
+}
+
+header p {
+  max-width: 75%;
+  text-decoration: none;
+}
+
+.title {
+  font-size: 3rem;
+  background-color: var(--primary);
+  color: var(--dark);
+  padding: 0 10px;
+  display: inline-block;
+  border-radius: var(--border-radius);
+  box-shadow: 6px 5px var(--light-dark);
+  text-decoration: none;
+}
+
+.title a {
+  font-size: 3rem;
+  background-color: var(--primary);
+  color: var(--dark);
+  padding: 0 10px;
+  display: inline-block;
+  border-radius: var(--border-radius);
+  box-shadow: 6px 5px var(--light-dark);
+  text-decoration: none;
+}
+
+textarea,
+input {
+  padding: 0.5%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+  border: 1px solid #3486eb;
+}
+
+textarea {
+  min-width: 40%;
+  min-height: 100px;
+}
+
+form > div {
+  margin-bottom: 2%;
+}
+
+form label {
+  display: block;
+}
+
+.delete-post-btn {
+  background-color: #d41414;
+}
+
+.delete-post-btn:hover {
+  background-color: #ff643d;
+}
+
+.post {
+  margin-bottom: 2%;
+  line-height: 150%;
+}
+
+.post .title span {
+  font-style: italic;
+  font-size: 90%;
+  color: #000000;
+}
+
+.edit-link {
+  display: block;
+  margin: -1.5% 0 2% 0;
+}
+
+.comment-form {
+  margin-bottom: 5%;
+}
+
+.comment {
+  padding: 1%;
+  margin-bottom: 1%;
+}
+
+.comment:nth-child(odd) {
+  background-color: #fff5eb;
+}
+
+.comment .meta {
+  font-size: 90%;
+  margin-bottom: 0.5%;
+  opacity: 0.6;
+}
+
+.new-post-form input {
+  width: 300px;
+}
+
+.edit-post-form {
+  margin-bottom: 5%;
+} 
+
+/* .list-group {
+  padding: 0;
+  list-style: none;
+}
+
+.list-item {
+  margin-bottom: 10px;
+  padding: 1.5%;
+  border-radius: var(--border-radius);
+  background-color: var(--light-dark);
+  color: var(--primary);
+  text-decoration: none;
+} */
+
+/* .list-item:hover {
+  background-color: var(--dark);
+} */
+
+/* a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  transition: color 0.1s;
 }
 
 a:hover {
@@ -27,7 +233,7 @@ button {
   padding: 1%;
   color: white;
   font-weight: bold;
-  transition: background-color .1s;
+  transition: background-color 0.1s;
   cursor: pointer;
   border-radius: 5px;
 }
@@ -39,15 +245,18 @@ button:hover {
 .post-list {
   margin: 0;
   padding: 0;
+  color: #000;
 }
 
-textarea, input {
-  padding: .5%;
+textarea,
+input {
+  padding: 0.5%;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
 
-textarea:focus, input:focus {
+textarea:focus,
+input:focus {
   outline: none;
   border: 1px solid #3486eb;
 }
@@ -100,7 +309,7 @@ main {
   color: #225ca3;
   font-size: 100%;
   font-weight: bold;
-  transition: color .1s;
+  transition: color 0.1s;
   margin-left: 16px;
 }
 
@@ -125,7 +334,7 @@ main {
 .post .title span {
   font-style: italic;
   font-size: 90%;
-  color: #7d7d7d;
+  color: #000000;
 }
 
 .edit-link {
@@ -148,8 +357,8 @@ main {
 
 .comment .meta {
   font-size: 90%;
-  margin-bottom: .5%;
-  opacity: .6;
+  margin-bottom: 0.5%;
+  opacity: 0.6;
 }
 
 .new-post-form input {
@@ -158,4 +367,4 @@ main {
 
 .edit-post-form {
   margin-bottom: 5%;
-}
+} */
